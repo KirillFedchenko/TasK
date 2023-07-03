@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <title>Document</title>
+  </head>
+  <body class="m-6">
+    <div class="content">
+      <h1>"Become A Developer 2023" (summer course)</h1>
+      <h2>Умова задачі</h2>
+      <p>
+        Вам потрібно розробити алгоритм програми, яка повинна виконувати
+        наступне:
+      </p>
+      <p>
+        - програма приймає на вхід довільний текст і знаходить в кожному слові
+        цього тексту найперший символ, який більше НЕ повторюється в
+        аналізуємому слові
+      </p>
+      <p>
+        - далі із отриманого набору символів програма повинна вибрати перший
+        унікальний (тобто той, який більше не зустручається в наборі) і
+        повернути його.
+      </p>
+      <label for="inputField" class="label">Введіть текст:</label>
+      <!-- <input type="text" id="inputField" /> -->
+      <textarea
+        type="text"
+        id="inputField"
+        class="textarea is-primary mt-4"
+        placeholder="вирішення завдання написане мовою програмування JavaScript"
+      ></textarea>
+      <div class="columns mt-2">
+        <div class="column is-1">
+          <button class="button is-success" onclick="processInput()">
+            Жмакай
+          </button>
+        </div>
+        <div id="outputField" class="column is-1 is-align-self-center"></div>
+      </div>
+    </div>
+    <div class="content">
+      <h2>
+        Дві колонки в першій компілятор у другій розв'язання задачі мовою
+        програмування Python
+      </h2>
+    </div>
+    <div class="columns is-gapless m-1">
+      <div class="column">
+        <p>компілятор</p>
+        <iframe
+          src="https://www.programiz.com/python-programming/online-compiler/"
+          width="700"
+          height="600"
+          title="Iframe Example"
+        ></iframe>
+      </div>
+      <div class="column">
+        <p>Скопіюйте код та вставте в компілятор</p>
+        <pre>
+text_input = """
+The Tao gave birth to machine language. Machine language gave birth to the assembler.
+The assembler gave birth to the compiler.  Now there are ten thousand languages.
+Each language has its purpose, however humble.  Each language expresses the Yin and Yang of software.
+Each language has its place within the Tao.
+But do not program in COBOL if you can avoid it.
+        -- Geoffrey James, "The Tao of Programming"
+"""
+
+def find_first_unique_char(text):
+  words = []
+  unique_char = ''
+
+  for word in text.split():
+    first_char = word[0]
+    if word.count(first_char) == 1:
+      words.append(first_char)
+
+  for char in words:
+    if words.count(char) == 1:
+      unique_char = str(char)
+      break
+
+  return unique_char
+
+
+print(find_first_unique_char(text_input))
+          </pre
+        >
+      </div>
+    </div>
+
+    <script>
+      function findFirstUniqueChar(text) {
+        const words = [];
+        let uniqueChar = "";
+
+        const textArr = text.split(" ");
+
+        for (let i = 0; i < textArr.length; i++) {
+          const word = textArr[i];
+          const firstChar = word[0];
+
+          if (word.split(firstChar).length - 1 === 1) {
+            words.push(firstChar);
+          }
+        }
+
+        for (let i = 0; i < words.length; i++) {
+          const char = words[i];
+
+          if (words.filter((c) => c === char).length === 1) {
+            uniqueChar = char;
+            break;
+          }
+        }
+
+        return uniqueChar;
+      }
+
+      function processInput() {
+        var inputText = document.getElementById("inputField").value;
+        var outputField = document.getElementById("outputField");
+
+        outputField.textContent =
+          "Результат: " + findFirstUniqueChar(inputText);
+      }
+    </script>
+  </body>
+</html>
