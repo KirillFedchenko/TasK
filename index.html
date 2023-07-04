@@ -64,36 +64,36 @@
         <div class="content">
           <p>Скопіюйте код та вставте в компілятор</p>
           <pre>
-  text_input = """
-  The Tao gave birth to machine language. 
-  Machine language gave birth to the assembler.
-  The assembler gave birth to the compiler. 
-  Now there are ten thousand languages.
-  Each language has its purpose, however humble.  
-  Each language expresses the Yin and Yang of software.
-  Each language has its place within the Tao.
-  But do not program in COBOL if you can avoid it.
-  -- Geoffrey James, "The Tao of Programming"
-  """
-  
-  def find_first_unique_char(text):
-    words = []
-    unique_char = ''
-  
-    for word in text.split():
-      first_char = word[0]
-      if word.count(first_char) == 1:
-        words.append(first_char)
-  
-    for char in words:
-      if words.count(char) == 1:
-        unique_char = str(char)
-        break
-  
-    return unique_char
-  
-  
-  print(find_first_unique_char(text_input))
+text_input = """
+The Tao gave birth to machine language. 
+Machine language gave birth to the assembler.
+The assembler gave birth to the compiler. 
+Now there are ten thousand languages.
+Each language has its purpose, however humble.  
+Each language expresses the Yin and Yang of software.
+Each language has its place within the Tao.
+But do not program in COBOL if you can avoid it.
+-- Geoffrey James, "The Tao of Programming"
+"""
+
+def find_first_unique_char(text):
+  words = []
+  unique_char = ''
+
+  for word in text.split():
+    first_char = word[0]
+    if word.count(first_char) == 1:
+      words.append(first_char)
+
+  for char in words:
+    if words.count(char) == 1:
+      unique_char = str(char)
+      break
+
+  return unique_char
+
+
+print(find_first_unique_char(text_input))
             </pre
           >
         </div>
